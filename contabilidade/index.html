@@ -418,5 +418,17 @@ footer{background:var(--hero-bg);color:var(--hero-muted);font-size:14px}
   </div>
 </footer>
 
+<script>
+  // Conversão do Google Ads: conta cada clique nos botões de WhatsApp (uma vez por página)
+  (function(){
+    var enviado=false;
+    document.addEventListener('click',function(e){
+      var a=e.target.closest && e.target.closest('a[href*="wa.me/"],a[href*="api.whatsapp.com"]');
+      if(!a||enviado||typeof gtag!=='function') return;
+      enviado=true;
+      gtag('event','conversion',{'send_to':'AW-18510988887/vSYyCIS72ZsdENeM3fpE','value':1.0,'currency':'BRL','transport_type':'beacon'});
+    },true);
+  })();
+</script>
 </body>
 </html>
