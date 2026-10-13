@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pedrowilson.com.br/sitemap.xml

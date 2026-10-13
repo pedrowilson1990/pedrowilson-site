@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<link rel="canonical" href="https://pedrowilson.com.br/mei/">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PW para MEIs</title>
+<meta name="description" content="PW para MEIs: assessoria mensal para MEI a partir de R$ 170, curso MEI na Prática por R$ 97 para cuidar do seu MEI sozinho e o Painel do MEI, aplicativo em desenvolvimento. Com o contador Pedro Wilson, Natal/RN.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: página do MEI — topo verde com a escolha entre "faço por você" e "você aprende" e uma amostra do painel do limite; planos de assessoria, serviços avulsos, curso, aplicativo, fechamento */
+:root{
+  --green:#0E3B32; --green-2:#15493F; --lime:#C8F169; --lime-2:#D9F79A;
+  --bg:#F4F7F2; --surface:#FFFFFF; --fg:#0E2A24; --muted:#56655F; --line:#DCE5DD;
+  --dark-fg:#F4F7F2; --dark-muted:#A7BDB5; --ok:#1F8A5B;
+  --display:'Sora',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --body:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --r:16px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B1714; --surface:#12231E; --fg:#EAF2EC; --muted:#9DB2AA; --line:#21372F; --green:#0A2D26; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B1714; --surface:#12231E; --fg:#EAF2EC; --muted:#9DB2AA; --line:#21372F; --green:#0A2D26; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.03em;line-height:1.1;text-wrap:balance;margin:0}
+h2{font-size:clamp(28px,4vw,42px);font-weight:700}
+h3{font-size:20px;font-weight:700}
+p{margin:0}
+.kick{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--ok)}
+.dark .kick{color:var(--lime)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .kick{color:var(--lime)}}
+:root[data-theme="dark"] .kick{color:var(--lime)}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px;border-radius:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none}
+.btn-lime{background:var(--lime);color:#0E3B32}
+.btn-lime:hover{background:var(--lime-2)}
+.btn-green{background:#0E3B32;color:#F4F7F2}
+.btn-green:hover{background:#15493F}
+.btn-ghost{color:var(--dark-fg);box-shadow:inset 0 0 0 1.5px rgba(244,247,242,.28)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--dark-fg)}
+.btn-line{box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn-line:hover{box-shadow:inset 0 0 0 1.5px var(--fg)}
+
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.ic{width:44px;height:44px;border-radius:12px;background:var(--lime);color:#0E3B32;display:flex;align-items:center;justify-content:center;white-space:nowrap;font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.04em;flex:none}
+.ic b{color:#0E3B32;opacity:.55}
+.wm{display:flex;flex-direction:column;line-height:1}
+.wm strong{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.02em}
+.wm span{font-family:var(--display);font-weight:600;font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--lime);margin-top:5px}
+
+/* hero */
+.dark{background:var(--green);color:var(--dark-fg)}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
+.home-link{font-size:13px;font-weight:600;color:var(--dark-muted);text-decoration:none}
+.home-link:hover{color:var(--dark-fg)}
+nav{display:flex;gap:26px;font-weight:600;font-size:15px}
+nav a{text-decoration:none;color:var(--dark-muted)}
+nav a:hover{color:var(--dark-fg)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding-block:40px 84px}
+.hero > *{min-width:0}
+.hero h1{font-size:clamp(36px,5.4vw,60px);font-weight:800;margin-top:16px}
+.hero h1 em{font-style:normal;color:var(--lime)}
+.lede{color:var(--dark-muted);font-size:19px;max-width:32em;margin-top:22px}
+.choose{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:32px;max-width:560px}
+.choice{display:flex;flex-direction:column;gap:4px;padding:18px 20px;border-radius:16px;text-decoration:none;transition:transform .2s}
+.choice:hover{transform:translateY(-3px)}
+.choice small{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
+.choice strong{font-family:var(--display);font-size:19px;line-height:1.2}
+.choice span{font-size:14px;opacity:.85}
+.c-do{background:var(--lime);color:#0E3B32}
+.c-learn{background:rgba(244,247,242,.08);color:var(--dark-fg);box-shadow:inset 0 0 0 1.5px rgba(244,247,242,.2)}
+
+/* app preview */
+.phone{background:#0A2620;border-radius:28px;padding:22px;box-shadow:0 30px 60px -30px rgba(0,0,0,.7);border:1px solid rgba(200,241,105,.15);max-width:400px;justify-self:end;width:100%}
+.ph-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.ph-top strong{font-family:var(--display);font-size:15px}
+.ph-top span{font-size:12px;color:var(--dark-muted)}
+.gauge{display:block;width:100%;max-width:100%;height:auto}
+.g-track{fill:none;stroke:rgba(244,247,242,.1);stroke-width:18;stroke-linecap:round}
+.g-val{fill:none;stroke:var(--lime);stroke-width:18;stroke-linecap:round}
+.g-num{fill:#F4F7F2;font:800 30px 'Sora',system-ui,sans-serif;letter-spacing:-.03em}
+.g-lab{fill:#A7BDB5;font:600 12px 'Manrope',system-ui,sans-serif}
+.g-end{fill:#A7BDB5;font:600 11px 'Manrope',system-ui,sans-serif}
+.ph-rows{display:flex;flex-direction:column;margin-top:8px}
+.ph-rows div{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-top:1px solid rgba(244,247,242,.08);font-size:14px}
+.ph-rows b{font-weight:700;font-variant-numeric:tabular-nums}
+.pill{font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;background:rgba(200,241,105,.16);color:var(--lime);white-space:nowrap}
+.pill.warn{background:rgba(242,169,59,.18);color:#F7C26E}
+.ph-note{font-size:12px;color:var(--dark-muted);margin-top:12px;text-align:center}
+
+/* sections */
+section{padding-block:84px}
+.sec-h{display:flex;flex-direction:column;gap:12px;max-width:660px;margin-bottom:40px}
+.sec-h p{color:var(--muted)}
+.dark .sec-h p{color:var(--dark-muted)}
+
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:900px}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:30px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.plan .for{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.price{display:flex;align-items:baseline;gap:6px;font-variant-numeric:tabular-nums}
+.price strong{font-family:var(--display);font-size:44px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.price span{color:var(--muted);font-weight:600}
+.plan ul{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column}
+.plan li{position:relative;padding:10px 0 10px 28px;border-top:1px solid var(--line);font-size:15.5px;line-height:1.4}
+.plan li::before{content:"";position:absolute;left:3px;top:15px;width:12px;height:7px;border-left:2.5px solid var(--ok);border-bottom:2.5px solid var(--ok);transform:rotate(-45deg)}
+.plan li.plus{font-weight:700}
+.plan .btn{margin-top:auto;justify-content:center}
+.plan.hi{background:var(--green);border-color:var(--green);color:var(--dark-fg)}
+.plan.hi .for{color:var(--lime)} .plan.hi .price span{color:var(--dark-muted)}
+.plan.hi li{border-color:rgba(244,247,242,.1)} .plan.hi li::before{border-color:var(--lime)}
+.badge{align-self:flex-start;font-size:12px;font-weight:700;padding:5px 11px;border-radius:999px;background:var(--lime);color:#0E3B32}
+.plans-note{margin-top:16px;font-size:14px;color:var(--muted);max-width:900px}
+
+.extras{margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ex{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.ex strong{font-family:var(--display);font-size:16px}
+.ex span{font-size:14px;color:var(--muted)}
+.extras-h{margin-top:56px;font-family:var(--display);font-size:20px;font-weight:700}
+
+/* course */
+.course{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.course > *{min-width:0}
+.course-txt{display:flex;flex-direction:column;gap:16px}
+.course-txt p{color:var(--dark-muted)}
+.c-promise{font-size:19px;color:var(--dark-fg)!important;line-height:1.5}
+.c-price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:4px}
+.c-price strong{font-family:var(--display);font-size:40px;font-weight:800;letter-spacing:-.04em;color:var(--lime);line-height:1}
+.c-price span{font-size:14px;color:var(--dark-muted)}
+.c-guar{font-size:14px}
+.c-side{display:flex;flex-direction:column;gap:12px;min-width:0}
+.mods{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(244,247,242,.08);border:1px solid rgba(244,247,242,.08);border-radius:16px;overflow:hidden;counter-reset:m}
+.mods li{background:var(--green-2);padding:14px 16px 14px 52px;position:relative;font-size:14.5px;font-weight:600;color:var(--dark-fg);line-height:1.35;counter-increment:m;min-width:0}
+.mods li::before{content:counter(m,decimal-leading-zero);position:absolute;left:16px;top:14px;font-family:var(--display);font-weight:700;font-size:13px;color:var(--lime)}
+.bonus{background:rgba(200,241,105,.08);border:1px solid rgba(200,241,105,.25);border-radius:16px;padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+.bonus strong{font-family:var(--display);font-size:15px;color:var(--lime)}
+.bonus span{font-size:14px;color:var(--dark-muted)}
+
+/* app */
+.app{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.app > *{min-width:0}
+.app-txt{display:flex;flex-direction:column;gap:14px}
+.app-txt p{color:var(--muted)}
+.status{align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:rgba(242,169,59,.16);color:#9A5E10}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .status{color:#F7C26E}}
+:root[data-theme="dark"] .status{color:#F7C26E}
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.feat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:6px}
+.feat strong{font-family:var(--display);font-size:16px}
+.feat span{font-size:14.5px;color:var(--muted)}
+
+.closing{display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;background:var(--green);color:var(--dark-fg);border-radius:28px;padding:36px 40px}
+.closing > *{min-width:0}
+.closing img{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:50% 25%;border:3px solid var(--lime);display:block}
+.closing p{color:var(--dark-muted);margin-top:8px}
+footer{padding-block:36px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+@media (max-width:960px){.extras{grid-template-columns:1fr 1fr}}
+@media (max-width:860px){
+  nav{display:none}
+  .hero,.course,.app{grid-template-columns:1fr;gap:36px}
+  .phone{justify-self:start}
+  .closing{grid-template-columns:1fr;text-align:left}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  section{padding-block:60px}
+  .choose,.plans,.extras,.mods,.feats{grid-template-columns:1fr}
+  .closing{padding:28px}
+}
+@media (prefers-reduced-motion:reduce){.choice{transition:none}.choice:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<div class="dark">
+  <div class="wrap">
+    <header>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <a class="home-link" href="/">← pedrowilson.com.br</a>
+        <a class="logo" href="#topo" id="topo" aria-label="PW para MEIs"><span class="ic">pw<b>.</b></span><span class="wm"><strong>para MEIs</strong><span>Pedro Wilson</span></span></a>
+      </div>
+      <nav aria-label="Seções">
+        <a href="#assessoria">Assessoria</a>
+        <a href="#curso">Curso</a>
+        <a href="#app">Aplicativo</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <div>
+        <p class="kick">Para microempreendedores</p>
+        <h1>Seu MEI em dia, <em>do jeito que você preferir</em>.</h1>
+        <p class="lede">DAS, declaração anual, nota fiscal e limite de faturamento sem dor de cabeça. Ou eu cuido de tudo por você, ou te ensino a fazer sozinho.</p>
+        <div class="choose">
+          <a class="choice c-do" href="#assessoria"><small>Faço por você</small><strong>Assessoria para MEI</strong><span>a partir de R$ 170/mês</span></a>
+          <a class="choice c-learn" href="#curso"><small>Você faz sozinho</small><strong>Curso MEI na Prática</strong><span>R$ 97 · acesso vitalício</span></a>
+        </div>
+      </div>
+
+      <aside class="phone" aria-label="Exemplo do Painel do MEI">
+        <div class="ph-top"><strong>Painel do MEI</strong><span>exemplo · 2026</span></div>
+        <svg class="gauge" viewBox="0 0 300 170" role="img" aria-label="Limite anual usado: 64% de R$ 81 mil">
+          <path class="g-track" d="M30 150 A120 120 0 0 1 270 150"/>
+          <path class="g-val" d="M30 150 A120 120 0 0 1 270 150" pathLength="100" stroke-dasharray="64 100"/>
+          <text x="150" y="122" text-anchor="middle" class="g-num">R$ 51.840</text>
+          <text x="150" y="146" text-anchor="middle" class="g-lab">64% do limite anual usado</text>
+          <text x="30" y="168" text-anchor="middle" class="g-end">R$ 0</text>
+          <text x="270" y="168" text-anchor="middle" class="g-end">R$ 81 mil</text>
+        </svg>
+        <div class="ph-rows">
+          <div><span>DAS de outubro</span><span class="pill">Pago</span></div>
+          <div><span>DASN-SIMEI 2026</span><span class="pill">Entregue</span></div>
+          <div><span>Média mensal permitida</span><b>R$ 6.750</b></div>
+          <div><span>Ritmo atual</span><span class="pill warn">Atenção em dezembro</span></div>
+        </div>
+        <p class="ph-note">Números ilustrativos de um MEI de serviços</p>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section id="assessoria">
+    <div class="wrap">
+      <div class="sec-h">
+        <p class="kick">Faço por você</p>
+        <h2>Assessoria mensal para MEI</h2>
+        <p>Você trabalha no seu negócio e eu cuido das obrigações. Sem multa, sem CNPJ irregular e sem susto com o limite de faturamento.</p>
+      </div>
+      <div class="plans">
+        <article class="plan">
+          <span class="for">MEI sem funcionário</span>
+          <h3>Assessoria MEI</h3>
+          <div class="price"><strong>R$ 170</strong><span>/mês</span></div>
+          <ul>
+            <li>DAS do mês enviado e acompanhado até o pagamento</li>
+            <li>Declaração anual (DASN-SIMEI) feita por nós</li>
+            <li>Controle do limite de faturamento, com alerta antes de estourar</li>
+            <li>Orientação na emissão de notas fiscais</li>
+            <li>Certidões e regularidade do CNPJ acompanhadas</li>
+            <li>Atendimento direto pelo WhatsApp</li>
+          </ul>
+          <a class="btn btn-green" href="https://wa.me/5584996157681?text=Ol%C3%A1%2C%20Pedro!%20Quero%20contratar%20a%20Assessoria%20MEI%20sem%20funcion%C3%A1rio." target="_blank" rel="noopener">Contratar este plano</a>
+        </article>
+        <article class="plan hi">
+          <span class="badge">Com funcionário</span>
+          <span class="for">MEI com 1 empregado</span>
+          <h3>Assessoria MEI + Folha</h3>
+          <div class="price"><strong>R$ 230</strong><span>/mês</span></div>
+          <ul>
+            <li class="plus">Tudo do plano sem funcionário</li>
+            <li>Folha de pagamento e holerite do empregado</li>
+            <li>eSocial e FGTS Digital em dia</li>
+            <li>Férias, 13º salário e rescisão calculados</li>
+            <li>Admissão com registro correto desde o primeiro dia</li>
+          </ul>
+          <a class="btn btn-lime" href="https://wa.me/5584996157681?text=Ol%C3%A1%2C%20Pedro!%20Quero%20contratar%20a%20Assessoria%20MEI%20com%20funcion%C3%A1rio." target="_blank" rel="noopener">Contratar este plano</a>
+        </article>
+      </div>
+      <p class="plans-note">O MEI pode ter um empregado, que recebe um salário mínimo ou o piso da categoria.</p>
+
+      <p class="extras-h">Serviços avulsos</p>
+      <div class="extras">
+        <div class="ex"><strong>Abertura de CNPJ MEI</strong><span>Atividade certa desde o início, para não ter problema com nota fiscal e alvará.</span></div>
+        <div class="ex"><strong>Migração de MEI para ME</strong><span>Para quem passou do limite ou quer crescer, sem multa e sem susto com os impostos.</span></div>
+        <div class="ex"><strong>Desbloqueio de Inscrição Estadual</strong><span>Para o MEI de comércio voltar a emitir nota e comprar de fornecedores.</span></div>
+        <div class="ex"><strong>Regularização de pendências</strong><span>DAS atrasados, declarações em aberto e parcelamento das dívidas.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="curso" class="dark">
+    <div class="wrap course">
+      <div class="course-txt">
+        <p class="kick">Você faz sozinho</p>
+        <h2>Curso MEI na Prática</h2>
+        <p class="c-promise">Domine seu negócio em menos de 7 dias: o guia prático para o MEI controlar tudo sem contador.</p>
+        <p>Emitir o DAS, declarar o faturamento, tirar nota fiscal e organizar as finanças, em aulas curtas para assistir no celular. Se um dia quiser que alguém cuide disso por você, a assessoria está aqui.</p>
+        <div class="c-price"><strong>R$ 97</strong><span>pagamento único · acesso vitalício</span></div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <a class="btn btn-lime" href="https://pay.kiwify.com.br/HPhnkF2" target="_blank" rel="noopener">Quero o curso por R$ 97</a>
+          <a class="btn btn-ghost" href="https://meinapraticaoficial.com.br/" target="_blank" rel="noopener">Ver página do curso ↗</a>
+        </div>
+        <p class="c-guar">Garantia de 7 dias: se não gostar, devolvemos 100% do valor.</p>
+      </div>
+      <div class="c-side">
+        <ol class="mods">
+          <li>Boas-vindas e mentalidade do empreendedor</li>
+          <li>Entendendo o MEI: as regras do jogo</li>
+          <li>Acessando e dominando o Portal do MEI</li>
+          <li>Pagamento do DAS</li>
+          <li>Nota fiscal para prestadores de serviço</li>
+          <li>Nota fiscal para vendedores de produtos</li>
+          <li>Declaração anual do MEI (DASN)</li>
+          <li>Controle financeiro do MEI</li>
+          <li>Documentação e comprovação de renda</li>
+          <li>Baixa do MEI e crescimento do negócio</li>
+        </ol>
+        <div class="bonus"><strong>Bônus inclusos</strong><span>Modelos de recibos e controle de caixa · e-book <em>Contabilidade para MEI em Linguagem Humana</em> · guia de quando contratar um contador · tutorial de IA · como comprovar renda para financiamento</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="app">
+    <div class="wrap app">
+      <div class="app-txt">
+        <span class="status">Em desenvolvimento</span>
+        <p class="kick">Aplicativo</p>
+        <h2>Painel do MEI: seu negócio na palma da mão</h2>
+        <p>Um aplicativo simples para registrar o que entra e o que sai, ver quanto do limite você já usou e nunca esquecer o DAS. Quando precisar, um botão chama ajuda de um contador.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px">
+          <a class="btn btn-green" href="https://wa.me/5584996157681?text=Ol%C3%A1%2C%20Pedro!%20Quero%20entrar%20na%20lista%20de%20espera%20do%20Painel%20do%20MEI." target="_blank" rel="noopener">Entrar na lista de espera</a>
+        </div>
+      </div>
+      <div class="feats">
+        <div class="feat"><strong>Velocímetro do limite</strong><span>Quanto você já faturou no ano e quanto ainda pode faturar por mês.</span></div>
+        <div class="feat"><strong>Receitas e despesas</strong><span>Lançamentos em segundos, com o resumo do mês pronto.</span></div>
+        <div class="feat"><strong>Obrigações em dia</strong><span>Lembrete do DAS todo mês e da declaração anual.</span></div>
+        <div class="feat"><strong>Contas a receber</strong><span>Quem está devendo para você e quando vence.</span></div>
+        <div class="feat"><strong>Botão "Preciso de ajuda"</strong><span>Fala direto com o escritório quando surgir uma dúvida ou chegar a hora de virar ME.</span></div>
+        <div class="feat"><strong>Feito por contador</strong><span>Pensado a partir das dúvidas reais de quem atende MEIs há mais de 10 anos.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="closing">
+        <img src="../img/pedro-sobre.jpg" alt="Pedro Wilson" width="1000" height="1000" loading="lazy">
+        <div>
+          <h2 style="font-size:clamp(24px,3vw,32px);color:var(--dark-fg)">Ficou na dúvida sobre o melhor caminho?</h2>
+          <p>Me conte o que você faz e como está o seu MEI. Eu digo se vale mais a assessoria, o curso ou só um serviço avulso.</p>
+        </div>
+        <a class="btn btn-lime" href="https://wa.me/5584996157681?text=Ol%C3%A1%2C%20Pedro!%20Tenho%20um%20MEI%20e%20quero%20uma%20orienta%C3%A7%C3%A3o." target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="wrap">
+  <footer>
+    <span>PW para MEIs · Pedro Wilson · Contador CRC-RN 011614</span>
+    <a href="/" style="text-decoration:none">pedrowilson.com.br</a>
+  </footer>
+</div>
+</body>
+</html>

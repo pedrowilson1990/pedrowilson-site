@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="canonical" href="https://pedrowilson.com.br/">
+<title>Pedro Wilson Contador</title>
+<meta name="description" content="Pedro Wilson, contador em Natal/RN. Escritório PW Contabilidade Inteligente, mentorias da PW Prática Contábil e conteúdo para MEI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: hub pessoal — abertura com nome e foto, três caminhos (um por marca, cada um nas próprias cores), sobre em números, contato */
+:root{
+  --navy:#13233F; --gold:#B8913A; --gold-2:#D4AF5F;
+  --bg:#F7F4EE; --surface:#FFFFFF; --fg:#13233F; --muted:#5A6478; --line:#E4DFD4;
+  --pc-bg:#1C1D22; --pc-ac:#F2A93B; --mei-bg:#0E3B32; --mei-ac:#C8F169; --on-dark:#F7F4EE; --on-dark-2:#B9BFCC;
+  --display:'Sora',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --body:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0D1830; --surface:#13233F; --fg:#F1EEE6; --muted:#A3AEC4; --line:#24375A; --gold:#C9A24C; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D1830; --surface:#13233F; --fg:#F1EEE6; --muted:#A3AEC4; --line:#24375A; --gold:#C9A24C; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.03em;line-height:1.08;text-wrap:balance;margin:0}
+h2{font-size:clamp(28px,4vw,40px);font-weight:700}
+p{margin:0}
+.kick{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none}
+.btn-navy{background:var(--navy);color:#F7F4EE}
+.btn-navy:hover{background:#1B2F52}
+.btn-line{box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn-line:hover{box-shadow:inset 0 0 0 1.5px var(--fg)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn-navy{background:var(--gold);color:#13233F}}
+:root[data-theme="dark"] .btn-navy{background:var(--gold);color:#13233F}
+
+/* header */
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
+.mark{display:flex;align-items:center;gap:12px;text-decoration:none}
+.ic{width:42px;height:42px;border-radius:12px;background:var(--navy);color:#F7F4EE;display:flex;align-items:center;justify-content:center;white-space:nowrap;font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.04em;flex:none}
+.ic b{color:var(--gold-2)}
+.mark span{font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:-.01em}
+nav{display:flex;gap:26px;font-weight:600;font-size:15px}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--fg)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding-block:40px 80px}
+.hero > *{min-width:0}
+.hero h1{font-size:clamp(52px,9vw,112px);font-weight:800;letter-spacing:-.055em;line-height:.92;margin-top:18px}
+.hero h1 span{display:block;color:var(--gold)}
+.role{margin-top:26px;font-size:20px;font-weight:600}
+.lede{color:var(--muted);font-size:18px;max-width:31em;margin-top:12px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.photo{position:relative}
+.photo img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 25%;border-radius:28px 28px 120px 28px;background:var(--navy)}
+.badge{position:absolute;left:-18px;bottom:36px;background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:16px;padding:14px 18px;box-shadow:0 18px 40px -20px rgba(19,35,63,.45)}
+.badge strong{display:block;font-family:var(--display);font-size:22px;font-variant-numeric:tabular-nums}
+.badge span{font-size:13px;color:var(--muted)}
+
+/* paths */
+section{padding-block:80px}
+.sec-h{display:flex;flex-direction:column;gap:12px;max-width:640px;margin-bottom:36px}
+.sec-h p{color:var(--muted)}
+.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.path{border-radius:24px;padding:30px;display:flex;flex-direction:column;gap:14px;color:var(--on-dark);text-decoration:none;min-width:0;transition:transform .2s ease}
+a.path:hover{transform:translateY(-4px)}
+.path .pi{width:54px;height:54px;border-radius:15px;display:flex;align-items:center;justify-content:center;white-space:nowrap;font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.04em}
+.path h3{font-size:23px;font-weight:700}
+.path .who{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.acts{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column}
+.acts li{font-size:15.5px;font-weight:500;color:var(--on-dark);padding:10px 0 10px 22px;border-top:1px solid rgba(247,244,238,.1);position:relative;line-height:1.35}
+.acts li::before{content:"";position:absolute;left:2px;top:17px;width:7px;height:7px;border-radius:2px;background:currentColor;opacity:.9}
+.path .go{margin-top:auto;padding-top:16px;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.path .url{font-size:13px;font-weight:600;opacity:.75}
+.soon{font-size:12px;font-weight:700;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.1)}
+.p-cont{background:var(--navy)} .p-cont .pi{background:#F7F4EE;color:var(--navy)} .p-cont .pi b,.p-cont .who,.p-cont .go,.p-cont .acts li::before{color:var(--gold-2)}
+.p-prat{background:var(--pc-bg)} .p-prat .pi{background:var(--pc-ac);color:var(--pc-bg)} .p-prat .pi b{color:#fff} .p-prat .who,.p-prat .go,.p-prat .acts li::before{color:var(--pc-ac)}
+.p-mei{background:var(--mei-bg)} .p-mei .pi{background:var(--mei-ac);color:var(--mei-bg)} .p-mei .pi b{color:#fff} .p-mei .who,.p-mei .go,.p-mei .acts li::before{color:var(--mei-ac)}
+.acts li::before{background:currentColor}
+.p-cont .acts li::before{background:var(--gold-2)} .p-prat .acts li::before{background:var(--pc-ac)} .p-mei .acts li::before{background:var(--mei-ac)}
+
+/* about */
+.about{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+.about > *{min-width:0}
+.about img{width:100%;max-width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:24px;display:block}
+.about-txt{display:flex;flex-direction:column;gap:16px}
+.about-txt p{color:var(--muted);max-width:36em}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:12px}
+.nums div{background:var(--surface);padding:18px}
+.nums strong{display:block;font-family:var(--display);font-size:26px;font-weight:700;font-variant-numeric:tabular-nums}
+.nums span{font-size:13px;color:var(--muted)}
+
+/* contact */
+.contact{background:var(--navy);color:#F7F4EE;border-radius:28px;padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.contact > *{min-width:0}
+.contact h2{color:#F7F4EE}
+.contact p{color:#AEB8CC;margin-top:12px}
+.cl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.cl li{display:flex;flex-direction:column;padding:14px 0;border-top:1px solid rgba(247,244,238,.12)}
+.cl li:first-child{border-top:0}
+.cl small{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-2)}
+.cl span,.cl a{font-weight:600;overflow-wrap:anywhere;text-decoration:none}
+.btn-gold{background:var(--gold-2);color:#13233F;margin-top:24px}
+.btn-gold:hover{background:#E0C27E}
+
+footer{padding-block:36px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+@media (max-width:960px){
+  .paths{grid-template-columns:1fr}
+}
+@media (max-width:860px){
+  nav{display:none}
+  .hero,.about,.contact{grid-template-columns:1fr;gap:36px}
+  .photo{max-width:440px}
+  .badge{left:12px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  section{padding-block:56px}
+  .contact{padding:28px}
+  .nums{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){a.path{transition:none}a.path:hover{transform:none}}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header>
+    <a class="mark" href="#topo" id="topo"><span class="ic">pw<b>.</b></span><span>Pedro Wilson</span></a>
+    <nav aria-label="Seções">
+      <a href="#caminhos">Frentes</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <p class="kick">Contador · Empresário · Mentor · Palestrante</p>
+      <h1>Pedro <span>Wilson</span></h1>
+      <p class="role">Contabilidade para empresas e prática contábil para contadores.</p>
+      <p class="lede">Há mais de 10 anos cuido de empresas em Natal e ensino contadores a trabalhar com organização, tecnologia e segurança. Escolha abaixo o que você procura.</p>
+      <div class="ctas">
+        <a class="btn btn-navy" href="/contabilidade/">Contabilidade para minha empresa</a>
+        <a class="btn btn-line" href="#caminhos">Ver todas as frentes</a>
+      </div>
+    </div>
+    <div class="photo">
+      <img src="img/pedro-pratica.jpg" alt="Pedro Wilson de óculos e blazer cinza, sorrindo e segurando um tablet" width="1000" height="1000">
+    </div>
+  </div>
+</div>
+
+<main>
+  <section id="caminhos">
+    <div class="wrap">
+      <div class="sec-h">
+        <p class="kick">Frentes</p>
+        <h2>Por onde você quer começar?</h2>
+        <p>Cada frente tem a sua página, para você ir direto ao que interessa.</p>
+      </div>
+      <div class="paths">
+        <a class="path p-cont" href="/contabilidade/">
+          <span class="pi">pw<b>.</b></span>
+          <span class="who">Para empresas</span>
+          <h3>PW Contabilidade Inteligente</h3>
+          <ul class="acts">
+            <li>Assessoria contábil</li>
+            <li>Consultoria tributária</li>
+            <li>Certificado digital</li>
+            <li>Registro de marcas</li>
+            <li>Estratégia e estruturação de novos negócios</li>
+            <li>Migração de MEI para ME</li>
+          </ul>
+          <span class="go"><span>Conhecer o escritório →</span><span class="url">/contabilidade</span></span>
+        </a>
+        <a class="path p-prat" href="/pratica-contabil/">
+          <span class="pi">pw<b>.</b></span>
+          <span class="who">Para contadores</span>
+          <h3>PW Prática Contábil</h3>
+          <ul class="acts">
+            <li>Cursos online</li>
+            <li>Mentorias sob demanda</li>
+            <li>Mentoria para recém-formados</li>
+            <li>Palestras e treinamentos</li>
+          </ul>
+          <span class="go"><span>Conhecer os formatos →</span><span class="url">/pratica-contabil</span></span>
+        </a>
+        <a class="path p-mei" href="/mei/">
+          <span class="pi">pw<b>.</b></span>
+          <span class="who">Para microempreendedores</span>
+          <h3>PW para MEIs</h3>
+          <ul class="acts">
+            <li>Abertura de CNPJ</li>
+            <li>Migração de MEI para ME</li>
+            <li>Aplicativo para MEIs</li>
+            <li>Treinamentos para MEIs</li>
+            <li>Desbloqueio de Inscrição Estadual</li>
+          </ul>
+          <span class="go"><span>Ver assessoria e curso →</span><span class="url">/mei</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" style="padding-top:0">
+    <div class="wrap about">
+      <img src="img/pedro-terno.jpg" alt="Pedro Wilson de terno e gravata no escritório" width="1000" height="1000" loading="lazy">
+      <div class="about-txt">
+        <p class="kick">Minha história</p>
+        <h2>Contador, empresário, mentor e palestrante</h2>
+        <p>Comecei abrindo CNPJs e acompanhando de perto quem estava tirando o próprio negócio do papel. Com o tempo, o escritório cresceu, e os clientes continuaram chegando pelo mesmo motivo: queriam falar comigo. Por isso todas as frentes levam o meu nome. PW de Pedro Wilson.</p>
+        <p>Hoje, além de cuidar das empresas, formo contadores e levo para palestras e treinamentos o jeito de trabalhar que uso no escritório, com organização, tecnologia e atendimento próximo.</p>
+        <div class="nums">
+          <div><strong>+10</strong><span>anos de história</span></div>
+          <div><strong>+400</strong><span>clientes atendidos</span></div>
+          <div><strong>+50</strong><span>contadores formados</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" style="padding-top:0">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <p class="kick" style="color:var(--gold-2)">Contato</p>
+          <h2 style="margin-top:12px">Vamos conversar?</h2>
+          <p>Para empresas, mentorias ou parcerias, fale direto comigo.</p>
+          <a class="btn btn-gold" href="https://wa.me/5584996157681?text=Ol%C3%A1%2C%20Pedro!%20Vim%20pelo%20seu%20site." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        </div>
+        <ul class="cl">
+          <li><small>WhatsApp</small><span>(84) 9 9615-7681</span></li>
+          <li><small>E-mail</small><span>contatopedrowilson@gmail.com</span></li>
+          <li><small>Instagram</small><a href="https://www.instagram.com/contadorpedrowilson/" target="_blank" rel="noopener">@contadorpedrowilson</a></li>
+          <li><small>Escritório</small><span>Av. Dão Silveira, 3860, Sala 03, Candelária, Natal/RN</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="wrap">
+  <footer>
+    <span>© 2026 Pedro Wilson · Contador · CRC-RN 011614</span>
+    <span>pedrowilson.com.br</span>
+  </footer>
+</div>
+
+</body>
+</html>

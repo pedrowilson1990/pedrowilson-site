@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<link rel="canonical" href="https://pedrowilson.com.br/pratica-contabil/">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PW Prática Contábil</title>
+<meta name="description" content="PW Prática Contábil: Mentoria PCA de 8 semanas, cursos online, mentorias individuais por demanda e palestras com o contador Pedro Wilson, para recém-formados e contadores sem experiência.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: página da frente educacional — topo grafite com foto, quatro formatos em índice, Mentoria PCA em destaque com as 8 semanas, depois cursos, mentorias por demanda e palestras, contato */
+:root{
+  --ink:#1C1D22; --ink-2:#26282F; --amber:#F2A93B; --amber-2:#F7C26E;
+  --bg:#F6F3EE; --surface:#FFFFFF; --fg:#1C1D22; --muted:#5E6068; --line:#E5E0D6;
+  --dark-fg:#F6F3EE; --dark-muted:#A9ABB3;
+  --display:'Sora',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --body:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --r:16px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141518; --surface:#1E2026; --fg:#F1EEE8; --muted:#A3A5AD; --line:#2E3038; --ink:#0E0F12; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141518; --surface:#1E2026; --fg:#F1EEE8; --muted:#A3A5AD; --line:#2E3038; --ink:#0E0F12; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.03em;line-height:1.1;text-wrap:balance;margin:0}
+h2{font-size:clamp(28px,4vw,42px);font-weight:700}
+h3{font-size:20px;font-weight:700}
+p{margin:0}
+.kick{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#B9741A}
+.dark .kick{color:var(--amber)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .kick{color:var(--amber)}}
+:root[data-theme="dark"] .kick{color:var(--amber)}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none}
+.btn-amber{background:var(--amber);color:#1C1D22}
+.btn-amber:hover{background:var(--amber-2)}
+.btn-ghost{color:var(--dark-fg);box-shadow:inset 0 0 0 1.5px rgba(246,243,238,.28)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--dark-fg)}
+.btn-line{box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn-line:hover{box-shadow:inset 0 0 0 1.5px var(--fg)}
+
+/* brand */
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.ic{width:44px;height:44px;border-radius:12px;background:var(--amber);color:#1C1D22;display:flex;align-items:center;justify-content:center;white-space:nowrap;font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.04em;flex:none}
+.ic b{color:#fff}
+.wm{display:flex;flex-direction:column;line-height:1}
+.wm strong{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.02em}
+.wm span{font-family:var(--display);font-weight:600;font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--amber);margin-top:5px}
+
+/* hero */
+.dark{background:var(--ink);color:var(--dark-fg)}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
+.home-link{font-size:13px;font-weight:600;color:var(--dark-muted);text-decoration:none}
+.home-link:hover{color:var(--dark-fg)}
+nav{display:flex;gap:26px;font-weight:600;font-size:15px}
+nav a{text-decoration:none;color:var(--dark-muted)}
+nav a:hover{color:var(--dark-fg)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:end;padding-top:40px}
+.hero > *{min-width:0}
+.hero-txt{padding-bottom:72px}
+.hero h1{font-size:clamp(36px,5.4vw,60px);font-weight:800;margin-top:16px}
+.hero h1 em{font-style:normal;color:var(--amber)}
+.lede{color:var(--dark-muted);font-size:19px;max-width:32em;margin-top:22px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.stats{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:40px}
+.stats div{display:flex;flex-direction:column}
+.stats strong{font-family:var(--display);font-size:28px;font-weight:700;color:var(--dark-fg);font-variant-numeric:tabular-nums;line-height:1.1}
+.stats span{font-size:13px;color:var(--dark-muted)}
+.hero-photo{align-self:end}
+.hero-photo img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:24px 24px 0 0}
+
+/* formats index */
+section{padding-block:84px}
+.sec-h{display:flex;flex-direction:column;gap:12px;max-width:660px;margin-bottom:40px}
+.sec-h p{color:var(--muted)}
+.dark .sec-h p{color:var(--dark-muted)}
+.formats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.fmt{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:10px;text-decoration:none;min-width:0;transition:border-color .2s,transform .2s}
+.fmt:hover{border-color:var(--amber);transform:translateY(-3px)}
+.fmt .for{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.fmt p{color:var(--muted);font-size:15px}
+.fmt .more{margin-top:auto;padding-top:6px;font-weight:700;font-size:14px;color:#B9741A}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .fmt .more{color:var(--amber)}}
+:root[data-theme="dark"] .fmt .more{color:var(--amber)}
+.fmt.star{background:var(--ink);border-color:var(--ink);color:var(--dark-fg)}
+.fmt.star .for{color:var(--amber)} .fmt.star p{color:var(--dark-muted)} .fmt.star .more{color:var(--amber)}
+
+/* PCA */
+.pca-top{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:48px}
+.pca-top > *{min-width:0}
+.pca-badge{display:inline-flex;align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:rgba(242,169,59,.16);color:var(--amber)}
+.pca-promise{font-size:20px;color:var(--dark-fg);line-height:1.5}
+.pca-txt{display:flex;flex-direction:column;gap:16px}
+.pca-txt p{color:var(--dark-muted)}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pillars div{border:1px solid rgba(246,243,238,.1);border-radius:14px;padding:18px;background:var(--ink-2)}
+.pillars strong{display:block;font-family:var(--display);font-size:16px;color:var(--dark-fg);margin-bottom:4px}
+.pillars span{font-size:14px;color:var(--dark-muted)}
+.weeks{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(246,243,238,.1);border:1px solid rgba(246,243,238,.1);border-radius:var(--r);overflow:hidden;counter-reset:w}
+.weeks li{background:var(--ink);padding:22px;display:flex;flex-direction:column;gap:8px;counter-increment:w;min-width:0}
+.weeks li::before{content:"Semana " counter(w);font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.weeks strong{font-family:var(--display);font-size:17px;line-height:1.25;color:var(--dark-fg)}
+.weeks span{font-size:14px;color:var(--dark-muted)}
+.gets{display:grid;grid-template-columns:1.3fr .7fr;gap:32px;align-items:center;margin-top:48px}
+.gets > *{min-width:0}
+.gets ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 28px}
+.gets li{position:relative;padding-left:26px;color:var(--dark-fg);font-size:15.5px}
+.gets li::before{content:"";position:absolute;left:0;top:7px;width:14px;height:8px;border-left:2.5px solid var(--amber);border-bottom:2.5px solid var(--amber);transform:rotate(-45deg)}
+.pca-cta{background:var(--ink-2);border:1px solid rgba(242,169,59,.35);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:12px}
+.pca-cta strong{font-family:var(--display);font-size:20px}
+.pca-cta span{font-size:14px;color:var(--dark-muted)}
+
+/* panels */
+.panel{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.panel > *{min-width:0}
+.panel-txt{display:flex;flex-direction:column;gap:14px;position:sticky;top:24px}
+.panel-txt p{color:var(--muted)}
+.list-cards{display:grid;gap:12px}
+.lc{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;display:flex;flex-direction:column;gap:8px}
+.lc .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.lc p{color:var(--muted);font-size:15.5px}
+.tag{font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:rgba(242,169,59,.16);color:#9A5E10;white-space:nowrap}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag{color:var(--amber)}}
+:root[data-theme="dark"] .tag{color:var(--amber)}
+.topics{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.topics li{font-size:13px;font-weight:600;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--bg)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:s}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:18px 0;border-top:1px solid var(--line);counter-increment:s}
+.steps li::before{content:counter(s);width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--amber);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:15px}
+.steps strong{display:block;font-family:var(--display);font-size:17px}
+.steps span{color:var(--muted);font-size:15.5px}
+.demands{margin-top:22px;padding:22px 24px;border-radius:var(--r);background:var(--surface);border:1px solid var(--line)}
+.demands strong{font-family:var(--display);font-size:16px}
+.alt{background:var(--surface);border-block:1px solid var(--line)}
+.alt .lc{background:var(--bg)}
+
+/* contact */
+.closing{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;background:var(--ink);color:var(--dark-fg);border-radius:28px;padding:44px}
+.closing > *{min-width:0}
+.closing p{color:var(--dark-muted);margin-top:12px;max-width:34em}
+footer{padding-block:36px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+@media (max-width:980px){
+  .formats{grid-template-columns:1fr 1fr}
+  .weeks{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  nav{display:none}
+  .hero,.pca-top,.gets,.panel,.closing{grid-template-columns:1fr;gap:32px}
+  .hero-txt{padding-bottom:0}
+  .hero-photo{max-width:440px}
+  .panel-txt{position:static}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  section{padding-block:60px}
+  .formats,.weeks,.pillars,.gets ul{grid-template-columns:1fr}
+  .closing{padding:28px}
+}
+@media (prefers-reduced-motion:reduce){.fmt{transition:none}.fmt:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<div class="dark">
+  <div class="wrap">
+    <header>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <a class="home-link" href="/">← pedrowilson.com.br</a>
+        <a class="logo" href="#topo" id="topo" aria-label="PW Prática Contábil"><span class="ic">pw<b>.</b></span><span class="wm"><strong>Prática Contábil</strong><span>Pedro Wilson</span></span></a>
+      </div>
+      <nav aria-label="Seções">
+        <a href="#pca">Mentoria PCA</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#individual">Mentoria individual</a>
+        <a href="#palestras">Palestras</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <div class="hero-txt">
+        <p class="kick">Para recém-formados e contadores</p>
+        <h1>A faculdade ensina a teoria. Aqui você aprende a <em>prática do escritório</em>.</h1>
+        <p class="lede">Mentorias, cursos e treinamentos com um contador que atende empresas todos os dias, para você atender com segurança e conquistar seus primeiros clientes.</p>
+        <div class="ctas">
+          <a class="btn btn-amber" href="#pca">Conhecer a Mentoria PCA</a>
+          <a class="btn btn-ghost" href="#formatos">Ver todos os formatos</a>
+        </div>
+        <div class="stats">
+          <div><strong>+50</strong><span>contadores formados</span></div>
+          <div><strong>+10 anos</strong><span>de escritório</span></div>
+          <div><strong>+400</strong><span>empresas atendidas</span></div>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="../img/pedro-preto.jpg" alt="Pedro Wilson sorrindo, de paletó preto, segurando um tablet" width="1000" height="1000">
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section id="formatos">
+    <div class="wrap">
+      <div class="sec-h">
+        <p class="kick">Formatos</p>
+        <h2>Quatro jeitos de aprender, conforme o seu momento</h2>
+        <p>Do primeiro passo depois da formatura até uma demanda específica que você precisa resolver esta semana.</p>
+      </div>
+      <div class="formats">
+        <a class="fmt star" href="#pca"><span class="for">8 semanas · em turma</span><h3>Mentoria PCA</h3><p>Todas as áreas do escritório, do DP ao societário, com plano individual para conquistar clientes.</p><span class="more">Ver a mentoria →</span></a>
+        <a class="fmt" href="#cursos"><span class="for">No seu ritmo</span><h3>Cursos online</h3><p>Aulas gravadas e workshops sobre rotinas específicas, para assistir quando quiser.</p><span class="more">Ver cursos →</span></a>
+        <a class="fmt" href="#individual"><span class="for">Sob demanda · 1:1</span><h3>Mentoria individual</h3><p>Você traz uma demanda real e resolvemos juntos, com você fazendo e eu acompanhando.</p><span class="more">Como funciona →</span></a>
+        <a class="fmt" href="#palestras"><span class="for">Para instituições</span><h3>Palestras e treinamentos</h3><p>Para faculdades, entidades contábeis, eventos e equipes de escritório.</p><span class="more">Ver temas →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="pca" class="dark">
+    <div class="wrap">
+      <div class="pca-top">
+        <div class="pca-txt">
+          <span class="pca-badge">Mentoria PCA · Prática Contábil Aplicada</span>
+          <h2>Do diploma aos primeiros clientes em 8 semanas</h2>
+          <p class="pca-promise">Aprenda a atuar na prática em MEIs e empresas do Simples Nacional, os regimes que mais geram demanda para quem está começando.</p>
+          <p>A faculdade não mostra como é o dia a dia do escritório. O resultado é insegurança para atender, medo de errar e dificuldade para conseguir o primeiro cliente. A PCA resolve isso com prática real e acompanhamento próximo.</p>
+        </div>
+        <div class="pillars">
+          <div><strong>Foco em MEI e Simples</strong><span>Mais de 90% das empresas do Brasil e a porta de entrada do contador iniciante.</span></div>
+          <div><strong>Formato híbrido</strong><span>Aulas gravadas curtas, encontros ao vivo e acompanhamento individual.</span></div>
+          <div><strong>Plano 1:1</strong><span>Cada aluno sai com um plano personalizado de prospecção de clientes.</span></div>
+          <div><strong>Turmas reduzidas</strong><span>Poucas vagas por turma para acompanhar cada aluno de perto.</span></div>
+        </div>
+      </div>
+
+      <ol class="weeks">
+        <li><strong>Fundamentos da prática</strong><span>Como funciona o atendimento a MEIs e ao Simples Nacional</span></li>
+        <li><strong>Departamento Pessoal</strong><span>Rotinas de folha e eSocial</span></li>
+        <li><strong>Departamento Fiscal</strong><span>PGDAS-D, DEFIS e DASN-SIMEI</span></li>
+        <li><strong>Departamento Contábil</strong><span>Escrituração e relatórios aplicados</span></li>
+        <li><strong>Departamento Societário</strong><span>Abertura, alteração e baixa de empresas</span></li>
+        <li><strong>Gestão do escritório</strong><span>Processos, rotina e organização</span></li>
+        <li><strong>Marketing contábil</strong><span>Posicionamento digital para atrair clientes</span></li>
+        <li><strong>Prospecção de clientes</strong><span>Plano de ação individual</span></li>
+      </ol>
+
+      <div class="gets">
+        <ul>
+          <li>8 semanas de acompanhamento passo a passo</li>
+          <li>Aulas gravadas curtas e práticas</li>
+          <li>Encontros semanais ao vivo com estudos de caso</li>
+          <li>Grupo exclusivo da turma</li>
+          <li>Sessão individual com plano de prospecção</li>
+          <li>Checklists, planilhas, modelos de contrato e propostas</li>
+        </ul>
+        <div class="pca-cta">
+          <strong>Próxima turma</strong>
+          <span>Vagas limitadas. Fale comigo para saber datas e condições.</span>
+          <a class="btn btn-amber" href="https://wa.me/5584996157681?text=Ol%C3%A1%2C%20Pedro!%20Quero%20saber%20sobre%20a%20pr%C3%B3xima%20turma%20da%20Mentoria%20PCA." target="_blank" rel="noopener">Quero minha vaga na PCA</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cursos">
+    <div class="wrap panel">
+      <div class="panel-txt">
+        <p class="kick">Cursos online</p>
+        <h2>Aprenda uma rotina de cada vez, no seu ritmo</h2>
+        <p>Cursos e workshops gravados sobre rotinas que o contador precisa dominar, com modelos prontos para usar no dia seguinte.</p>
+        <div class="ctas" style="margin-top:8px"><a class="btn btn-line" href="https://wa.me/5584996157681?text=Ol%C3%A1%2C%20Pedro!%20Quero%20conhecer%20os%20cursos%20online%20da%20PW%20Pr%C3%A1tica%20Cont%C3%A1bil." target="_blank" rel="noopener">Quero acessar os cursos</a></div>
+      </div>
+      <div class="list-cards">
+        <article class="lc">
+          <div class="row"><h3>Workshop MEI na Prática</h3><span class="tag">Workshop</span></div>
+          <p>Como executar os principais serviços do MEI com segurança e confiança.</p>
+          <ul class="topics"><li>Rotina de atendimento aos MEIs</li><li>Modelos de documentos</li><li>Captação e crescimento</li><li>Rotinas contábeis que geram valor</li><li>Cases reais</li></ul>
+        </article>
+        <article class="lc">
+          <div class="row"><h3>Novos cursos no painel</h3><span class="tag">Em breve</span></div>
+          <p>O painel de cursos recebe novas aulas ao longo do ano. Os links de acesso de cada curso entram aqui.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="individual" class="alt">
+    <div class="wrap panel">
+      <div class="panel-txt">
+        <p class="kick">Mentoria individual por demanda</p>
+        <h2>Tem um caso real para resolver? Fazemos juntos.</h2>
+        <p>Você me contrata para uma demanda específica do seu escritório e atendemos lado a lado. Você resolve o problema do cliente e aprende o processo para as próximas vezes.</p>
+        <div class="ctas" style="margin-top:8px"><a class="btn btn-amber" href="https://wa.me/5584996157681?text=Ol%C3%A1%2C%20Pedro!%20Tenho%20uma%20demanda%20e%20quero%20uma%20mentoria%20individual." target="_blank" rel="noopener">Enviar minha demanda</a></div>
+      </div>
+      <div>
+        <ol class="steps">
+          <li><div><strong>Você conta a demanda</strong><span>Pelo WhatsApp, com o cenário do cliente e o prazo.</span></div></li>
+          <li><div><strong>Recebe o orçamento</strong><span>Com o escopo, o tempo estimado e o valor da sessão.</span></div></li>
+          <li><div><strong>Atendemos juntos</strong><span>Ao vivo por videochamada, com você executando e eu orientando cada passo.</span></div></li>
+          <li><div><strong>Fica com o processo</strong><span>Você termina com o caso resolvido e o passo a passo para repetir sozinho.</span></div></li>
+        </ol>
+        <div class="demands">
+          <strong>Demandas comuns</strong>
+          <ul class="topics" style="margin-top:12px"><li>Primeira DEFIS ou DASN-SIMEI</li><li>Abertura e alteração na JUCERN</li><li>Folha e eSocial</li><li>Migração de MEI para ME</li><li>Regularização no Simples</li><li>Precificação de honorários</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="palestras">
+    <div class="wrap panel">
+      <div class="panel-txt">
+        <p class="kick">Palestras e treinamentos</p>
+        <h2>Prática contábil levada para o palco e para equipes</h2>
+        <p>Palestras para faculdades, entidades da classe contábil e eventos, e treinamentos para equipes de escritório, presenciais ou online.</p>
+        <div class="ctas" style="margin-top:8px"><a class="btn btn-line" href="https://wa.me/5584996157681?text=Ol%C3%A1%2C%20Pedro!%20Quero%20convidar%20voc%C3%AA%20para%20uma%20palestra." target="_blank" rel="noopener">Convidar para uma palestra</a></div>
+      </div>
+      <div class="list-cards">
+        <article class="lc"><div class="row"><h3>Da faculdade ao escritório</h3><span class="tag">Universidades</span></div><p>O que muda entre a teoria e o dia a dia, e como conquistar os primeiros clientes.</p></article>
+        <article class="lc"><div class="row"><h3>IA e automação no escritório contábil</h3><span class="tag">Eventos</span></div><p>Como uso agentes de IA e automação para atender dezenas de empresas com uma equipe enxuta.</p></article>
+        <article class="lc"><div class="row"><h3>MEI na prática</h3><span class="tag">Treinamento</span></div><p>Rotinas, obrigações e oportunidades no atendimento a microempreendedores.</p></article>
+        <article class="lc"><div class="row"><h3>Carreira e precificação</h3><span class="tag">Entidades</span></div><p>Como posicionar o escritório e cobrar honorários justos desde o início.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="closing">
+        <div>
+          <p class="kick" style="color:var(--amber)">Vamos conversar</p>
+          <h2 style="margin-top:12px;color:var(--dark-fg)">Não sabe qual formato é para você?</h2>
+          <p>Me conte em que momento da carreira você está e o que quer resolver. Eu indico o caminho.</p>
+        </div>
+        <a class="btn btn-amber" href="https://wa.me/5584996157681?text=Ol%C3%A1%2C%20Pedro!%20Vim%20pela%20p%C3%A1gina%20da%20PW%20Pr%C3%A1tica%20Cont%C3%A1bil." target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="wrap">
+  <footer>
+    <span>PW Prática Contábil · Pedro Wilson · Contador CRC-RN 011614</span>
+    <a href="/" style="text-decoration:none">pedrowilson.com.br</a>
+  </footer>
+</div>
+</body>
+</html>
