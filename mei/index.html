@@ -168,7 +168,33 @@ section{padding-block:84px}
 .closing p{color:var(--dark-muted);margin-top:8px}
 footer{padding-block:36px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
+.hero-news{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;padding:8px 14px 8px 8px;border-radius:999px;background:rgba(200,241,105,.12);box-shadow:inset 0 0 0 1px rgba(200,241,105,.35);color:var(--dark-fg);font-size:14px;font-weight:600;text-decoration:none;max-width:100%}
+.hero-news b{background:var(--lime);color:#0E3B32;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:999px;flex:none}
+.hero-news:hover{box-shadow:inset 0 0 0 1px var(--lime)}
+
+/* perdão das dívidas */
+#perdao{padding-block:72px}
+.perdao{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start}
+.perdao > *{min-width:0}
+.perdao-txt{display:flex;flex-direction:column;gap:16px}
+.perdao-txt > p{color:var(--muted)}
+.news{align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:rgba(31,138,91,.12);color:var(--ok)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .news{color:var(--lime);background:rgba(200,241,105,.12)}}
+:root[data-theme="dark"] .news{color:var(--lime);background:rgba(200,241,105,.12)}
+.facts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.facts li{padding:18px 22px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:4px}
+.facts li:first-child{border-top:0}
+.facts strong{font-family:var(--display);font-size:16px}
+.facts span{font-size:14.5px;color:var(--muted);line-height:1.45}
+.facts li.alert{background:rgba(242,169,59,.10)}
+.perdao-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.perdao-note{font-size:13px;color:var(--muted)}
+.teto{margin-top:8px;padding:18px 20px;border-radius:16px;background:var(--green);color:var(--dark-fg);display:flex;flex-direction:column;gap:4px}
+.teto strong{font-family:var(--display);font-size:16px;color:var(--lime)}
+.teto span{font-size:14.5px;color:var(--dark-muted)}
+
 @media (max-width:960px){.extras{grid-template-columns:1fr 1fr}}
+@media (max-width:860px){.perdao{grid-template-columns:1fr;gap:32px}}
 @media (max-width:860px){
   nav{display:none}
   .hero,.course,.app{grid-template-columns:1fr;gap:36px}
@@ -202,6 +228,7 @@ footer{padding-block:36px;color:var(--muted);font-size:14px;display:flex;flex-wr
 
     <div class="hero">
       <div>
+        <a class="hero-news" href="#perdao"><b>Novo</b> Perdão das dívidas do MEI: veja se o seu entra →</a>
         <p class="kick">Para microempreendedores</p>
         <h1>Seu MEI em dia, <em>do jeito que você preferir</em>.</h1>
         <p class="lede">DAS, declaração anual, nota fiscal e limite de faturamento sem dor de cabeça. Ou eu cuido de tudo por você, ou te ensino a fazer sozinho.</p>
@@ -234,6 +261,32 @@ footer{padding-block:36px;color:var(--muted);font-size:14px;display:flex;flex-wr
 </div>
 
 <main>
+  <section id="perdao">
+    <div class="wrap perdao">
+      <div class="perdao-txt">
+        <span class="news">Lei sancionada em 21/10/2026</span>
+        <h2>Perdão das dívidas do MEI: veja se o seu entra e o que fazer agora</h2>
+        <p>A nova lei perdoa as dívidas federais do MEI com a União, inscritas ou não na dívida ativa até 13 de outubro de 2026, incluindo contribuições em atraso, multas e juros. As regras passam a valer em 1º de janeiro de 2027.</p>
+        <p>O perdão é automático, mas tem condição: quem atrasar o DAS nos seis meses seguintes perde o benefício. É aí que muito MEI vai escorregar.</p>
+        <div class="perdao-cta">
+          <a class="btn btn-green" href="https://wa.me/5584996157681?text=Ol%C3%A1%2C%20Pedro!%20Vi%20sobre%20o%20perd%C3%A3o%20das%20d%C3%ADvidas%20do%20MEI%20e%20quero%20analisar%20meu%20CNPJ." target="_blank" rel="noopener">Quero analisar meu CNPJ</a>
+          <a class="btn btn-line" href="#assessoria">Ver a assessoria MEI</a>
+        </div>
+        <p class="perdao-note">Eu confiro a situação do seu CNPJ, digo o que entra no perdão, o que precisa ser resolvido à parte e deixo o DAS em dia daqui pra frente.</p>
+      </div>
+      <div>
+        <ul class="facts">
+          <li><strong>Quem tem direito</strong><span>MEI com dívidas federais com a União até 13/10/2026, mesmo que já estejam parceladas ou na Justiça.</span></li>
+          <li><strong>Precisa pedir?</strong><span>Não. O perdão é automático a partir de 1º/01/2027.</span></li>
+          <li class="alert"><strong>A condição que derruba o benefício</strong><span>Pagar em dia o DAS dos seis meses seguintes. Se atrasar, o perdão é cancelado.</span></li>
+          <li><strong>Quem discute a dívida na Justiça</strong><span>Precisa desistir da ação para ter a baixa, sem pagar honorários.</span></li>
+          <li><strong>O que já foi pago</strong><span>Não é devolvido.</span></li>
+        </ul>
+        <div class="teto"><strong>A mesma lei aumentou o limite do MEI</strong><span>R$ 110 mil por ano em 2027 e R$ 140 mil em 2028. Quem estava perto de virar ME pode conseguir continuar no MEI: vale analisar antes de migrar.</span></div>
+      </div>
+    </div>
+  </section>
+
   <section id="assessoria">
     <div class="wrap">
       <div class="sec-h">
@@ -367,6 +420,26 @@ footer{padding-block:36px;color:var(--muted);font-size:14px;display:flex;flex-wr
       enviado=true;
       gtag('event','conversion',{'send_to':'AW-18510988887/vSYyCIS72ZsdENeM3fpE','value':1.0,'currency':'BRL','transport_type':'beacon'});
     },true);
+  })();
+
+  // Quem chega pelo anúncio do Google abre o WhatsApp com "(vim pelo Google)" na mensagem
+  (function(){
+    var veioDoGoogle=false;
+    try{
+      var q=new URLSearchParams(location.search);
+      if(q.has('gclid')||q.has('gbraid')||q.has('wbraid')||(q.get('utm_source')||'').toLowerCase()==='google') veioDoGoogle=true;
+      if(veioDoGoogle) sessionStorage.setItem('pw_origem','google');
+      else if(sessionStorage.getItem('pw_origem')==='google') veioDoGoogle=true;
+    }catch(e){}
+    if(!veioDoGoogle) return;
+    var marca=' (vim pelo Google)';
+    document.querySelectorAll('a[href*="wa.me/"]').forEach(function(a){
+      try{
+        var u=new URL(a.href);
+        var t=u.searchParams.get('text')||'';
+        if(t.indexOf(marca)===-1) a.href=u.origin+u.pathname+'?text='+encodeURIComponent(t+marca);
+      }catch(e){}
+    });
   })();
 </script>
 </body>
